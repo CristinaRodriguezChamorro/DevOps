@@ -1,6 +1,8 @@
+org: cristina
+app: todo-list-serverless
 service: serverless-rest-api-with-dynamodb
 
-frameworkVersion: ">=1.1.0"
+frameworkVersion: ">=1.1.0 <=2.18.0"
 
 provider:
   name: aws
@@ -77,3 +79,4 @@ resources:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         TableName: ${self:provider.environment.DYNAMODB_TABLE}
+
