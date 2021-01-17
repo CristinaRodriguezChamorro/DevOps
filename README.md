@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+# DevOps
+ll
+=======
 
 # Serverless REST API
 
@@ -243,3 +247,4 @@ Esto se puede hacer a través de los ajustes en el `serverless.yml`.
 ```
 
 En caso de que esperes mucha fluctuación de tráfico, te recomendamos que consultes esta guía sobre cómo escalar automáticamente el DynamoDB [https://aws.amazon.com/blogs/aws/auto-scale-dynamodb-with-dynamic-dynamodb/](https://aws.amazon.com/blogs/aws/auto-scale-dynamodb-with-dynamic-dynamodb/)
+>>>>>>> b4e69c196d5ca13532ab299e249bb13c300fee62
