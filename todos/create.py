@@ -1,9 +1,10 @@
+#Create.py
+
 import json
 import logging
 import os
 import time
 import uuid
-#test
 import boto3
 dynamodb = boto3.resource('dynamodb')
 
