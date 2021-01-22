@@ -45,6 +45,8 @@ functions:
           method: get
           cors: true
 
+
+
   update:
     handler: todos/update.update
     events:
@@ -79,4 +81,29 @@ resources:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         TableName: ${self:provider.environment.DYNAMODB_TABLE}
-
+    ReviewTranslate:
+        Type: 'AWS::Serverless::Function'
+        Properties:
+            Policies:
+             - AWSLambdaFullAccess
+             - TranslateReadOnly
+            Environment:
+              Variables:
+                TABLE_NAME: !Ref ReviewTable
+            Tracing: "Active"
+    ReviewTable:
+        Type: 'AWS::DynamoDB::Table'
+        Properties:
+            AttributeDefinitions:
+             - AttributeName: "review_id"
+               AttributeType: "N"
+             - AttributeName: "language"
+               AttributeType: "S"
+            KeySchema:
+              - AttributeName: "review_id"
+                KeyType: "HASH"
+              - AttributeName: "language"
+                KeyType: "RANGE"
+            ProvisionedThroughput:
+                ReadCapacityUnits: 5
+                WriteCapacityUnits: 5
