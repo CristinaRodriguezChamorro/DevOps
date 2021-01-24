@@ -1,7 +1,7 @@
-<<<<<<< HEAD
+
 # DevOps
-ll
-=======
+
+
 
 # Serverless REST API
 
