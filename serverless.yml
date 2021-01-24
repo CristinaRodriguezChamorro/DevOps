@@ -362,7 +362,7 @@ functions:
           cors: true  
 
   translate:
-    handler: todos/translate.translate.handler
+    handler: todos/translate.translate_handler
     events:
       - http:
           path: todos/{id}/{language}
@@ -421,5 +421,5 @@ resources:
               - AttributeName: "language"
                 KeyType: "RANGE"
             ProvisionedThroughput:
-                ReadCapacityUnits: 5
-                WriteCapacityUnits: 5
+                ReadCapacityUnits: 10
+                WriteCapacityUnits: 10

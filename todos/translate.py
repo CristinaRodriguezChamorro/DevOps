@@ -3,9 +3,7 @@ import json
 import boto3
 
 translate = boto3.client('translate')
-dynamodb = boto3.client('dynamodb')
-firehose = boto3.client('firehose')
-TABLE_NAME = os.getenv('TABLE_NAME')
+dynamodb = boto3.resource('dynamodb')
 
 def translate_handler(event, context):
     table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])

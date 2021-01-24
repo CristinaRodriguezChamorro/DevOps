@@ -1,11 +1,10 @@
 import os
 import json
-import boto3
 
-translate = boto3.client('translate')
-dynamodb = boto3.client('dynamodb')
-firehose = boto3.client('firehose')
-TABLE_NAME = os.getenv('TABLE_NAME')
+
+import boto3
+dynamodb = boto3.resource('dynamodb')
+
 
 def get(event, context):
     table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
@@ -16,10 +15,11 @@ def get(event, context):
             'id': event['pathParameters']['id']
         }
     )
+
+    # create a response
     response = {
         "statusCode": 200,
-        "body":  json.dumps(result['Item']) 
+        "body": json.dumps(result['Item'])
     }
-
 
     return response
