@@ -362,7 +362,7 @@ functions:
           cors: true  
 
   translate:
-    handler: todos/translate.translate_handler
+    handler: todos/translate.lambda_handler
     events:
       - http:
           path: todos/{id}/{language}
